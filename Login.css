@@ -1,0 +1,27 @@
+#login-form, #signup-form {
+  font-family: 'Poppins', sans-serif;
+    padding: 40px 10%;
+    background-color: #48a14f;
+    margin: 20px 0;
+  }
+  
+  #login-form h2, #signup-form h2 {
+    text-align:left;
+  }
+  
+  form input {
+  
+    padding: 10px;
+    width: 80%;
+    max-width: 300px;
+    margin: 5px 0;
+  }
+  
+  form button {
+    padding: 10px 20px;
+    background-color: #0c460e;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 6px;
+  }
+  

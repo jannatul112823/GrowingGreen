@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GreenNest | Indoor Plant Shop</title>
+  <link rel="stylesheet" href="Login.css">
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
+
+      if (email && password) {
+        alert("Login successful for " + email);
+      } else {
+        alert("Please fill out both fields.");
+      }
+    }
+
+    function handleSignup(event) {
+      event.preventDefault();
+      const name = document.getElementById("signup-name").value;
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
+
+      if (name && email && password) {
+        alert("Signup successful! Welcome, " + name);
+      } else {
+        alert("Please fill in all fields.");
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <section id="login-form">
+    <h2>Login</h2>
+    <form onsubmit="handleLogin(event)">
+      <input type="email" id="login-email" placeholder="Email" required><br><br>
+      <input type="password" id="login-password" placeholder="Password" required><br><br>
+      <button type="submit">Login</button>
+    </form>
+  </section>
+    
+  </section>
+  <footer>
+    <p>&copy; 2025 GrowingGreen. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

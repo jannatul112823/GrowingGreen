@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿GrowingGreen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #ffffff;
+      padding: 15px;
+      color: rgb(10, 7, 7);
+      text-align: center;
+    }
+    .feedback-list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.feedback-item {
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+.feedback-item:last-child {
+  border-bottom: none;
+}
+.feedback-item strong {
+  color: #336d36;
+}
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #5b915d;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+    nav img {
+      height: 30px;
+    }
+    .plant-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .plant-card {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .plant-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .feedback-item {
+  background: #fdfdfd;
+  border-left: 4px solid #4caf50;
+  padding: 15px;
+  margin: 15px 0;
+  border-radius: 8px;
+}
+
+.feedback-item ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+.feedback-item li {
+  padding: 3px 0;
+}
+
+    .rating-section {
+      margin-top: 10px;
+      background-color: #f3f3f3;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .stars {
+      font-size: 20px;
+      color: rgb(39, 119, 63);
+      cursor: pointer;
+      user-select: none;
+    }
+    .stars.selected {
+      color: gold;
+    }
+    .rating-section textarea {
+      width: 100%;
+      height: 60px;
+      margin-top: 8px;
+      padding: 5px;
+      border-radius: 4px;
+      resize: none;
+      border: 1px solid #1d803e;
+      font-family: inherit;
+    }
+    #imageUploadForm {
+  margin: 20px 0;
+}
+
+#imagePreview img {
+  margin-top: 10px;
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+    .submit-feedback {
+      margin-top: 5px;
+      padding: 6px 12px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿GrowingGreen</h1>
+  </header>
+  <nav>
+    <h2>💬 User Feedback</h2>
+<div class="feedback-list" id="feedbackList">
+  <div class="feedback-item">
+    <strong>Farhana:</strong>
+    <p>The Peace Lily I bought is thriving. Thank you!🌼</p>
+  </div>
+  <div class="feedback-item">
+    <strong>Jannat:</strong>
+    <p>Love the variety of plants. Will order again!❤️</p>
+  </div>
+</div>
+
+    
+    <a href="#"> </a>
+    <input type="text" placeholder="Search plants...">
+    <img src="https://cdn-icons-png.freepik.com/256/2471/2471035.png?uid=R93643191&ga=GA1.1.1084020949.1665960156" alt="Rating Icon">
+  </nav>
+
+  <section class="plant-container">
+    <div class="plant-card">
+      <img src="https://i.pinimg.com/736x/a9/6b/e9/a96be9d0ae46c3f5bb72eae01ca5356e.jpg" alt="Peace Lily">
+      <h3>Peace Lily</h3>
+      <p>৳ 1,295.00</p>
+      <button onclick="addToCart('Peace Lily',  1,295.00)">Add to Cart</button>
+      <div class="rating-section">
+         <ul>
+      <li>🌱 <strong>Plant Name:</strong> Peace Lily</li>
+      <li>💧 <strong>Watering:</strong> Once a week</li>
+      <li>☀️ <strong>Light:</strong> Indirect sunlight</li>
+      <li>📦 <strong>Delivery:</strong> Arrived within 3 days</li>
+    </ul>
+        <p>Rate this plant:</p>
+        <div class="stars" data-plant="Peace Lily">★★★★★</div>
+        <textarea placeholder="Leave feedback... "></textarea>
+        <h2>🖼️ Upload Your Plant Photo</h2>
+<form id="imageUploadForm">
+  <input type="file" id="plantImage" accept="image/*" required>
+  <button type="submit">Upload</button>
+</form>
+
+<div id="imagePreview"></div>
+        <button class="submit-feedback">Submit</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+   
+
+    // Star Rating Logic
+    document.querySelectorAll('.stars').forEach(starDiv => {
+      starDiv.addEventListener('click', function(e) {
+        const clickedIndex = [...this.textContent].indexOf(e.target.textContent) + 1;
+        this.textContent = '★'.repeat(clickedIndex) + '☆'.repeat(5 - clickedIndex);
+        this.classList.add('selected');
+        alert(`You rated ${this.dataset.plant} with ${clickedIndex} star(s).`);
+      });
+    });
+const feedbackDiv = document.createElement("div");
+feedbackDiv.classList.add("feedback-item");
+feedbackDiv.innerHTML = `<strong>${name}:</strong> <p>${message}</p>`;
+document.getElementById("feedbackList").appendChild(feedbackDiv);
+    // Feedback Submission Logic
+    document.querySelectorAll('.submit-feedback').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const feedback = this.previousElementSibling.value;
+        if (feedback.trim() === '') {
+          alert("Please write some feedback.");
+        } else {
+          alert("Thank you for your feedback!");
+          this.previousElementSibling.value = '';
+        }
+      });
+    });
+
+    function addToCart(plantName, price) {
+      alert(`${plantName} added to cart for $${price.toFixed(2)}`);
+    }
+    
+  </script>
+  
+</body>
+</html>

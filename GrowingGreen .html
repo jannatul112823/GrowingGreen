@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GrowingGreen BD | ইনডোর প্ল্যান্ট শপ</title>
+  <link rel="stylesheet" href="Homepage.css">
+  <script>
+    // JS for search functionality
+    function searchPlants(event) {
+      event.preventDefault(); // prevent form submission
+      const query = document.getElementById("search-input").value;
+      console.log("Searching for:", query);
+      alert("You searched for: " + query);
+    }
+
+    // JS for feedback submission
+    function submitFeedback(plantName) {
+      alert("Thank you for your feedback on " + plantName + "!");
+    }
+    // JS for navigation
+  function navigateTo(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    } else {
+      alert("Section not found: " + sectionId);
+    }
+  }
+</script>
+
+
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">🌿GrowingGreen</h1>
+      
+      <nav>
+        <ul>
+          <li><a href="#" onclick="navigateTo('hero')">Home</a></li>
+          <li><a href="#" onclick="navigateTo('plants')">Shop</a></li>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="Signup.html">Sing Up</a></li>
+          <li><a href="#" onclick="navigateTo('cart')">🛒 Cart</a></li>
+        </ul>
+      </nav>
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+      <form class="search-bar" onsubmit="searchPlants(event)">
+        <input type="text" id="search-input" placeholder="Search plants...">
+      </form>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h2>সবুজ থাকুক আপনার ঘরে</h2>
+    <p>বাংলাদেশে তৈরি সুন্দর ইনডোর গাছ এখন খুব সহজে</p>
+    <a href="#" class="btn">Shop Now</a>
+  </section>
+  
+  <section class="plants">
+    <h2>Featured Plants</h2>
+
+    <div class="plant-grid">
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/a9/6b/e9/a96be9d0ae46c3f5bb72eae01ca5356e.jpg" alt="Plant 1">
+        <h3>Peace Lily</h3>
+        <p>৳ 1,295.00</p>
+        <a href="feedback1.html" class="btn">Submit Feedback</a>
+      </div>
+
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/f1/4f/59/f14f59896edd57ce2cfb4e8603083c9a.jpg" alt="Plant 2">
+        <h3>Snake Plant</h3>
+        <p>৳ 995.00</p>
+        <a href="feedback2.html" class="btn">Submit Feedback</a>
+        
+      </div>
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/9c/56/25/9c56256c316709d83d0e94adfbae4827.jpg" alt="Plant 3">
+        <h3>Fiddle Leaf Fig</h3>
+        <p>৳ 1,095.00</p>
+        <a href="feedback3.html" class="btn">Submit Feedback</a>
+      </div>
+
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/72/fe/07/72fe07d518c49076ba82f62ce138be02.jpg" alt="Plant 4">
+        <h3>Rubber Plant</h3>
+        <p>৳ 855.00</p>
+        <a href="feedback1.html" class="btn">Submit Feedback</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="plants">
+    <h2></h2>
+    <div class="plant-grid">
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/af/08/9b/af089b9e8e0872e79e0f5991670fa422.jpg " alt="Plant 5">
+        <h3>Alovera </h3>
+        <p>৳ 780.00</p>
+        <a href="feedback1.html" class="btn">Submit Feedback</a>
+      </div>
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/ef/72/a6/ef72a6cc6d1fbada003c7bf9e5392908.jpg" alt="Plant 6">
+        <h3>Pothos (Epipremnum aureum)</h3>
+        <p>৳ 400.00</p>
+        <a href="feedback2.html" class="btn">Submit Feedback</a>
+        
+      </div>
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/e5/80/9d/e5809d7408ff4734d52ca602fdc69912.jpg" alt="Plant 7">
+        <h3>Mint</h3>
+        <p>TK.150</p>
+        <a href="feedback3.html" class="btn">Submit Feedback</a>
+      </div>
+      <div class="plant-card">
+        <img src="https://i.pinimg.com/736x/09/37/ef/0937ef883328e0a7619d1911774e978b.jpg" alt="Plant 8">
+        <h3>Rex Begonia </h3>
+        <p>TK.300</p>
+        <a href="feedback1.html" class="btn">Submit Feedback</a>
+      </div>
+    </div>
+  </section>
+
+
+
+</section>
+
+  <section class="subscription-box">
+    <h2>🌿 Subscribe for Monthly Plant Surprises!</h2>
+    <p>Get a new indoor plant delivered every month, plus care tips & surprises!</p>
+    <div class="subscription-plan">
+      <h3>🌿 Beginner Box – TK.351/month</h3>
+      <ul>
+        <li>1 indoor plant</li>
+        <li>Care instructions</li>
+        <li>Decorative pot</li>
+      </ul>
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <button class="btn">Subscribe Now</button>
+    </div>
+  </section>
+
+  
+  <script>
+    document.querySelector('.subscription-plan .btn').addEventListener('click', function () {
+      alert("Thank you for subscribing! We’ll send your first plant soon.");
+    });
+  </script>
+  
+  <section class="affiliate-section">
+    <h3>🛠️ Tools We Recommend</h3>
+    <div class="affiliate-item">
+      <img src="https://m.media-amazon.com/images/I/81S6r+ZlE0L._AC_SY450_.jpg" alt="Eco Pot">
+      <p><strong>Eco-Friendly Plant Pot</strong> – Lightweight and stylish</p>
+      <a href="https://www.amazon.com/Eha-Friendly-Planters-Protected-Outdoor/dp/B0D8SPVM3P?th=1" target="_blank" class="btn">Buy on Amazon</a>
+    </div>
+  </section>
+  
+
+  <footer>
+    <p>&copy; 2025 GrowingGreen. All rights reserved.</p>
+  </footer>
+
+  <!-- Expert Chatbox -->
+  <div class="chat-box">
+    <div class="chat-header">Ask an Expert</div>
+    <div class="chat-body" id="chat-body">
+      <div class="chat-message expert"><span>Hello! How can I help you today?</span></div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="user-input" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("user-input");
+      const message = input.value.trim();
+      if (message === "") return;
+
+      const chatBody = document.getElementById("chat-body");
+
+      const userMessage = document.createElement("div");
+      userMessage.className = "chat-message user";
+      userMessage.innerHTML = `<span>${message}</span>`;
+      chatBody.appendChild(userMessage);
+
+      const expertMessage = document.createElement("div");
+      expertMessage.className = "chat-message expert";
+      expertMessage.innerHTML = `<span>Thank you! We'll get back to you shortly.</span>`;
+      chatBody.appendChild(expertMessage);
+
+      input.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+  </script>
+</body>
+</html>

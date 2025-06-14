@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🌿GrowingGreen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #137217;
+      padding: 15px;
+      color: white;
+      text-align: center;
+    }
+    nav {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #116915;
+      padding: 10px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 5px 10px;
+    }
+    nav img {
+      height: 30px;
+    }
+    .plant-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .plant-card {
+      background-color: white;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .plant-card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .rating-section {
+      margin-top: 10px;
+      background-color: #f3f3f3;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    .stars {
+      font-size: 20px;
+      color: rgb(39, 119, 63);
+      cursor: pointer;
+      user-select: none;
+    }
+    .stars.selected {
+      color: gold;
+    }
+    .rating-section textarea {
+      width: 100%;
+      height: 60px;
+      margin-top: 8px;
+      padding: 5px;
+      border-radius: 4px;
+      resize: none;
+      border: 1px solid #1d803e;
+      font-family: inherit;
+    }
+    .submit-feedback {
+      margin-top: 5px;
+      padding: 6px 12px;
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🌿GrowingGreen</h1>
+  </header>
+  <nav>
+    
+    <a href="#">RATING</a>
+    <input type="text" placeholder="Search plants...">
+    <img src="https://cdn-icons-png.freepik.com/256/2471/2471035.png?uid=R93643191&ga=GA1.1.1084020949.1665960156" alt="Rating Icon">
+  </nav>
+
+  <section class="plant-container">
+    <div class="plant-card">
+      <img src="https://i.pinimg.com/736x/9c/56/25/9c56256c316709d83d0e94adfbae4827.jpg" alt="Fiddle Leaf Fig">
+      <h3>Fiddle Leaf Fig</h3>
+      <p>TK.154</p>
+      <button onclick="addToCart('Snake Plant', 15.00)">Add to Cart</button>
+      <div class="rating-section">
+        <p>Rate this plant:</p>
+        <div class="stars" data-plant="Snake Plant">★★★★★</div>
+        <textarea placeholder="Leave feedback... "></textarea>
+        <a href="#" class="btn">Upload</a>
+        <button class="submit-feedback">Submit</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Star Rating Logic
+    document.querySelectorAll('.stars').forEach(starDiv => {
+      starDiv.addEventListener('click', function(e) {
+        const clickedIndex = [...this.textContent].indexOf(e.target.textContent) + 1;
+        this.textContent = '★'.repeat(clickedIndex) + '☆'.repeat(5 - clickedIndex);
+        this.classList.add('selected');
+        alert(`You rated ${this.dataset.plant} with ${clickedIndex} star(s).`);
+      });
+    });
+
+    // Feedback Submission Logic
+    document.querySelectorAll('.submit-feedback').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const feedback = this.previousElementSibling.value;
+        if (feedback.trim() === '') {
+          alert("Please write some feedback.");
+        } else {
+          alert("Thank you for your feedback!");
+          this.previousElementSibling.value = '';
+        }
+      });
+    });
+
+    function addToCart(plantName, price) {
+      alert(`${plantName} added to cart for $${price.toFixed(2)}`);
+    }
+  </script>
+</body>
+</html>
